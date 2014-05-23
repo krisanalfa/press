@@ -1,0 +1,512 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+
+        <title>Separation of Concern</title>
+
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+        <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
+        <link rel="apple-touch-icon" href="img/apple-touch-icon.png" />
+        <link rel="apple-touch-icon" sizes="57x57" href="img/apple-touch-icon-57x57.png" />
+        <link rel="apple-touch-icon" sizes="72x72" href="img/apple-touch-icon-72x72.png" />
+        <link rel="apple-touch-icon" sizes="76x76" href="img/apple-touch-icon-76x76.png" />
+        <link rel="apple-touch-icon" sizes="114x114" href="img/apple-touch-icon-114x114.png" />
+        <link rel="apple-touch-icon" sizes="120x120" href="img/apple-touch-icon-120x120.png" />
+        <link rel="apple-touch-icon" sizes="144x144" href="img/apple-touch-icon-144x144.png" />
+        <link rel="apple-touch-icon" sizes="152x152" href="img/apple-touch-icon-152x152.png" />
+
+        <link rel="stylesheet" href="css/reveal.css">
+        <link rel="stylesheet" href="css/theme/solarized.css" id="theme">
+
+        <!-- For syntax highlighting -->
+        <link rel="stylesheet" href="lib/css/zenburn.css">
+
+        <style>
+            .reveal section img {
+                background: none;
+                border: none;
+                box-shadow: none;
+            }
+
+            .emoji {
+                width: 1.5em;
+                height: 1.5em;
+                display: inline-block;
+                margin-bottom: -0.25em;
+            }
+
+            .reveal pre {
+                font-size: 17px;
+                letter-spacing: 0.5px;
+            }
+        </style>
+
+        <!-- If the query includes 'print-pdf', include the PDF print sheet -->
+        <script>
+if(window.location.search.match(/print-pdf/gi)) {
+    var link  = document.createElement('link');
+    link.rel  = 'stylesheet';
+    link.type = 'text/css';
+    link.href = 'css/print/pdf.css';
+
+    document.getElementsByTagName('head')[0].appendChild(link);
+}
+        </script>
+
+        <!--[if lt IE 9]>
+        <script src="lib/js/html5shiv.js"></script>
+        <![endif]-->
+    </head>
+
+    <body>
+
+        <div class="reveal">
+            <div class="slides">
+                <section>
+                    <img src="./img/logo.png" alt="">
+
+                    <h2>Separation of Concerns</h2>
+                    <h3>PT. Sagara Xinix Solusitama</h3>
+                    <h4>May 2014</h4>
+                    <h5>:kissing::kissing::kissing:</h5>
+
+                    <div>
+                        <small>Created by <a href="https://twitter.com/krisanalfa">@krisanalfa</a></small>
+                    </div>
+                </section>
+
+                <section>
+                    <section>
+                        <h2>Who the hell are you?</h2>
+
+                        <p class="fragment">
+                            My name is Krisan Alfa Timur
+                        </p>
+                    </section>
+                    <section>
+                        <h3>Node.js as a Web Service</h3>
+                    </section>
+                    <section>
+                        <h3>Unit Testing for Productivity</h3>
+                    </section>
+                    <section>
+                        <h3>Separation of Concerns</h3>
+                    </section>
+                </section>
+
+                <section>
+                    <stron>:trollface:<small>U mad bro?</small></strong>
+                    <h2>Man, are you crazy or what?</h2>
+
+                    <p class="fragment">
+                        I'm <b>what</b>
+                    </p>
+                    <div class="fragment">
+                        <p>I'm not crazy</p>
+                    </p>
+                </section>
+
+                <section>
+                    <h2>#1 Separation of Concerns</h2>
+                    <p>
+                        <b>&lt;Wikipedia&gt;</b> It's a design principle for separating a computer program into distinct
+                        sections, such that each section addresses a separate concern.
+                    </p>
+                </section>
+
+                <section>
+                    <section>
+                        <h2>Concerns</h2>
+                    </section>
+
+                    <section>
+                        A concern is a set of information that affects the code of a computer program.
+                    </section>
+
+                    <section>
+                        A concern can be the details of the code is being optimized for, or
+                        as specific as the name of a class to instantiate.
+                    </section>
+                </section>
+
+                <section>
+                    <section>
+                        <h3>:confused:</h3>
+                        <h2>Imagine</h2>
+                    </section>
+                    <section>
+                        <h3>:computer:</h3>
+                        Your application is like a monitor with a variety of cable ports. You can access the
+                        monitor's functionality via HDMI, VGA, or DVI.
+                    </section>
+
+                    <section>
+                        <h3>:electric_plug:</h3>
+                        Think of the Internet as just a cable into your application. The bulk of a monitor's
+                        functionality is independent of the cable.
+                    </section>
+
+                    <section>
+                        <h3>:car::dash:</h3>
+                        The cable is just a transport mechanism just like HTTP is a transport mechanism for your
+                        application. So, we don't want to clutter up our transport mechanism (the controller) with
+                        application logic.
+                    </section>
+                </section>
+
+                <section>
+                    <h2>Goal of Separation of Concerns</h2>
+
+                    <ol>
+                        <li class="fragment">Better modularity</li>
+                        <li class="fragment">Awesome flexibility</li>
+                        <li class="fragment">Testable Early</li>
+                        <li class="fragment">Very Verbose nn Each Line of Code</li>
+                        <li class="fragment">An Application That Well maintainable</li>
+                    </ol>
+                </section>
+
+                <section>
+                    <h3>:boom:</h3>
+                    <h2>Ouch!!! That's hurt.</h2>
+                    <p class="fragment">
+                        Bono is enterpise wise. So it's SHOULD BE ready for SoC principle. But the nature of Bono cannot
+                        do this, but there is a simple approach and implementation that can do this. It comes from a
+                        simple component name <b>"Kraken"</b>.
+                    </p>
+                </section>
+
+                <section>
+                    <h3>:no_mouth:</h3>
+                    <h2>Wait, what's Kraken?</h2>
+                    <p class="fragment">
+                        Kraken is a one of Bono Components that using <b>Dependency Injection</b> technique through
+                        it's robust container. We inject each dependency to the concrete class, once we need it,
+                        the dependency will be resolved using <b>Reflection</b> method.
+                    </p>
+                </section>
+
+                <section>
+                    <h2>Fuck this shit!</h2>
+                    <img src="images/flip.png" alt="">
+                </section>
+
+                <section>
+                    <h2>The mainstream project structure</h2>
+                    <pre>
+
+   app
+    ├── src
+    │   ├── Controller
+    │   │   └── BodyController.php
+    │   └── Model
+    │       └── BodyModel.php (Norm Model)
+    └── templates
+        └── body
+            └── SCRUDTemplate
+                    </pre>
+                </section>
+
+                <section>
+                    <h3>Mainstream Controller</h3>
+                    <pre><code class="php">// BodyController.php
+public function say($words)
+{
+    $data = array(); // Business logic
+
+    foreach($x as $y) // More business logic
+    {
+        if($y instanceof SomeClass) $data[] = $y->nope(); // More even business logic
+    }
+
+    say($words, $data);
+}
+
+public function getAll()
+{
+    $body = new BodyModel; // Controller now responsible to manage it's data
+
+    return $body->find();
+}
+</code></pre>
+                </section>
+
+                <section>
+                    <h2>Kraken recomended project structure</h2>
+                    <pre>
+
+   app
+    ├── src
+    │   ├── Controller
+    │   │    └── BodyController.php
+    │   └── Body
+    │        ├── Contract
+    │        │   ├── BodyInterface.php
+    │        │   ├── MouthInterface.php
+    │        │   └── BodyRepositoryInterface.php
+    │        ├── Repositories
+    │        │   └── BodyRepository.php
+    │        ├── Body.php (Norm Model)
+    │        └── Mouth.php
+    └── templates
+        └── body
+            └── SCRUDTemplate
+
+                    </pre>
+                </section>
+
+                <section>
+                    <h2>How the injection works?</h2>
+                </section>
+
+                <section>
+                    <h3>Controller</h3>
+                    <pre><code class="php">// BodyController.php
+public function __construct()
+{
+    $this->body = new BodyRepository;
+}
+
+public function say($words)
+{
+    $this->body->say($words); // I don't know how to say, I ask my body to say
+}
+</code></pre>
+                    <pre class="fragment"><code class="php">// BodyRepository.php
+public function __construct()
+{
+    $this->mouth = new Mouth
+}
+
+public function say($words)
+{
+    $this->mouth->say($words); // I know that foot cannot say, so I ask mouth to say
+}
+</code></pre>
+                    <pre class="fragment"><code class="php">// Mouth.php
+public function say($words)
+{
+    // Maybe there's a lots of procedure before mouth can say
+
+    say($words); // After that... Here I give you some words
+}
+</code></pre>
+                </section>
+
+                <section>
+                    <h2>That's good. Now consider this code.</h2>
+                </section>
+
+                <section>
+                    <h3>Controller</h3>
+
+                    <pre><code class="php">// BodyController.php
+public function __construct(BodyRepositoryInterface $body)
+{
+    // Now we instantiate our BodyRepository via constructor
+    $this->body = $body;
+}
+
+public function say($words)
+{
+    $this->body->say($words);
+}
+</code></pre>
+                    <pre><code class="php">// BodyRepository.php
+public function __construct(MouthInterface $mouth)
+{
+    // Instantiate Mouth class via constructor
+    $this->mouth = $mouth;
+}
+
+public function say($words)
+{
+    $this->mouth->say($words);
+}
+</code></pre>
+                    <pre><code class="php">// Mouth.php
+public function say($words)
+{
+    say($words);
+}
+</code></pre>
+                </section>
+
+                <section>
+                    <h2>Why interface?</h2>
+
+                    <p>
+                        Interfaces <b>do not contain any code</b>, but simply <b>define a set of methods that an object
+                        must implement</b>. If an object implements an interface, we are <b>guaranteed that every method
+                        defined by the interface is valid and callable on that object</b>. Since the contract guarantees
+                        the implementation of certain methods, <b>type safety becomes more flexible via polymorphism
+                        </b>. This is called <b>"Interface as Contract"</b>.
+                    </p>
+                </section>
+
+                <section>
+                    <h2>Instantiation</h2>
+
+                    <pre><code class="php">// Primitive method
+$controller = new BodyController(new BodyRepository(new Mouth));
+</code></pre>
+
+                    <pre class="fragment"><code class="php">// Kraken method
+$kraken = new Kraken;
+
+// Register BodyRepositoryInterface, so when some class request BodyRepositoryInterface as it's
+// dependency, we return BodyRepository as an instance
+$kraken->register('BodyRepositoryInterface', 'BodyRepository');
+
+// Register MouthInterface, so when some class request MouthInterface as it's
+// dependency, we return Mouth as an instance
+$kraken->register('MouthInterface', 'Mouth');
+
+$controller = $kraken->resolve('BodyController');
+</code></pre>
+                    <h3 class="fragment">Pretty cool, huh?</h3>
+                </section>
+
+                <section>
+                    <h3>Where's should I register my abstract class to Kraken container?</h3>
+                </section>
+
+                <section>
+                    <h2>Mapping the dependency</h2>
+
+                    <pre><code class="php">// Inside your config
+'kraken.controllers' => array(
+    'mapping' => array(
+        '/body'  => '\\Some\\Namespace\\BodyController',
+    ),
+    'dependencies' => array(
+        '\\Some\\Namespace\\BodyRepositoryInterface' => '\\Some\\Namespace\\BodyRepository',
+        '\\Some\\Namespace\\MouthInterface' => '\\Some\\Namespace\\Mouth',
+    ),
+),
+</code></pre>
+                </section>
+
+                <section>
+                    <h2>Some Proof of Concept</h2>
+                </section>
+
+                <section>
+                    <section>
+                        <h3>Too much Java! I don't really need Separation of Concerns! It's wasting time, bro!</h3>
+                    </section>
+
+                    <section>
+                        A common criticism of use of interfaces in PHP is that it makes your code too much like "Java".
+                        What people mean is that it makes the code very verbose.
+                    </section>
+
+                    <section>
+                        For small, simple applications, this criticism is probably valid. Interfaces are often unnecessary in
+                        these applications.
+                    </section>
+
+                    <section>
+                        But interfaces are very helpful in large applications, and the extra key-strokes pale in comparison to the
+                        flexibility and testability you will gain.
+                    </section>
+                </section>
+
+                <section>
+                    <h2>Any question?</h2>
+                </section>
+
+                <section>
+                    <h2>Conclusion</h2>
+
+                    <!-- <p>
+                        Keep in mind that this presentation presents a very "pure" theory or maybe a sets of principle
+                        to create a good architecture. If you need to scale it back for a small application, don't feel
+                        guilty. If you're not enjoying what you're doing, step back and re-evaluate.
+                    </p> -->
+                </section>
+
+                <section>
+                    <h2>Thank you very much</h2>
+                </section>
+            </div>
+        </div>
+
+        <script src="lib/js/head.min.js"></script>
+        <script src="js/reveal.min.js"></script>
+        <script src="js/emojify.min.js"></script>
+        <script>
+window.emojify.run();
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+window.Reveal.initialize({
+    controls: true,
+    progress: true,
+    history: true,
+    center: true,
+
+    theme: window.Reveal.getQueryHash().theme, // available themes are in /css/theme
+    transition: window.Reveal.getQueryHash().transition || 'zoom', // default/cube/page/concave/zoom/linear/fade/none
+
+    // Parallax scrolling
+    // parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+    // parallaxBackgroundSize: '2100px 900px',
+
+    // Optional libraries used to extend on reveal.js
+    dependencies: [
+        {
+            src: 'lib/js/classList.js',
+            condition: function() {
+                'use strict';
+                return !document.body.classList;
+            }
+        },
+        // {
+        //     src: 'plugin/markdown/marked.js',
+        //     condition: function() {
+        //         'use strict';
+        //         return !!document.querySelector('[data-markdown]');
+        //     }
+        // },
+        // {
+        //     src: 'plugin/markdown/markdown.js',
+        //     condition: function() {
+        //         'use strict';
+        //         return !!document.querySelector('[data-markdown]');
+        //     }
+        // },
+        {
+            src: 'plugin/highlight/highlight.js',
+            async: true,
+            callback: function() {
+                'use strict';
+                window.hljs.initHighlightingOnLoad();
+            }
+        },
+        // {
+        //     src: 'plugin/zoom-js/zoom.js',
+        //     async: true,
+        //     condition: function() {
+        //         'use strict';
+        //         return !!document.body.classList;
+        //     }
+        // },
+        // {
+        //     src: 'plugin/notes/notes.js',
+        //     async: true,
+        //     condition: function() {
+        //         'use strict';
+        //         return !!document.body.classList;
+        //     }
+        // }
+    ]
+});
+        </script>
+    </body>
+</html>
